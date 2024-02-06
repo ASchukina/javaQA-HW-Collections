@@ -1,19 +1,20 @@
 package ru.netology.domain;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Objects;
 
 public class Game {
-    private ArrayList<Player> players = new ArrayList<>();
+    private HashMap<String, Player> players = new HashMap<>();
 
     public void register(Player player) {
-        players.add(player);
+        players.put(player.getName(), player);
     }
 
     private Player findByName(String name) {
-        for (Player player : players) {
-            if (Objects.equals(player.getName(), name)) {
-                return player;
+        for (String key : players.keySet()) {
+            if (Objects.equals(key, name)) {
+                return players.get(key);
             }
         }
         return null;
