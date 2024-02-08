@@ -12,12 +12,7 @@ public class Game {
     }
 
     private Player findByName(String name) {
-        for (String key : players.keySet()) {
-            if (Objects.equals(key, name)) {
-                return players.get(key);
-            }
-        }
-        return null;
+        return players.get(name);
     }
 
     public int round(String playerName1, String playerName2) {
